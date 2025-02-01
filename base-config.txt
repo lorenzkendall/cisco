@@ -1,4 +1,5 @@
-# Basic Commands 
+Base Configuration 
+Basic Commands 
 Host(config)# hostname device-name 
 Host(config)# service password-encryption  
 Host(config)# banner motd “warning-message-here”  
@@ -10,17 +11,14 @@ Host(config)# enable secret ********
 Host(config)# username admin password ******** 
 Host(config)# int vlan 1 
 Host(config-vlan)# ip add x.x.x.x x.x.x.x (mgmt IP) 
-
-# Management Interface 
+Management Interface 
 Host(config)# int vlan 1 
 Host(config-if# ip add x.x.x.x x.x.x.x 
-
-# Telnet 
+Telnet 
 Host(config)# line vty 0 15 
 Host(config-line)# transport input telnet 
 Host(config-line)# login local 
-
-# SSH 
+SSH 
 Host(config)# ip domain-name example.com 
 Host(config)# crypto key generate rsa 
 Choose the size of the key modulus in the range of 360 to 2048 
@@ -28,11 +26,9 @@ How many bits in the modulus [512]: 1024 
 Host(config)# line vty 0 15 
 Host(config-line)# transport input ssh 
 Host(config-line)# login local 
-
-# Save Config 
+Save Config 
 Host# copy run start  
-
-# Info Commands  
+Info Commands  
 Host# show run - Displays the running configuration  
 Host# show start - Displays the startup configuration  
 Host# show ip int brief - Lists interface name, ip address, status, and protocol  
