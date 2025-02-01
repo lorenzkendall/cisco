@@ -1,0 +1,11 @@
+Site-to-Site VPN 
+Configuration 
+ASA1(config)#crypto isakmp enable outside  
+ASA1(config)#object network net-local  
+ASA1(config-network-object)#subnet 192.168.101.0 255.255.255.0 
+ASA1(config)#object network net-remote 
+ASA1(config-network-object)#subnet 192.168.102.0 255.255.255.0 
+ASA1(config)#access-list outside_1_cryptomap permit ip object net-local object net-remote  
+ASA1(config)#tunnel-group 192.168.0.12 type ipsec-l2l 
+ASA1(config)#tunnel-group 192.168.0.12 ipsec-attributes  
+ASA1(config)#pre-shared-key ******** 
