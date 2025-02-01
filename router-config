@@ -1,0 +1,74 @@
+Interface Configuration 
+Speed / Duplex 
+R1(config-if)# speed {10 | 100 | 1000 | auto} 
+R1(config-if)# duplex {full | half | auto} 
+IP Addressing 
+R1(config)# ip add x.x.x.x m.m.m.m 
+VLAN Routing  
+Option 1: Router on a Stick (RoaS) 
+R1(config)# int g0/0.2 
+R1(config-if)# encapsulation dot1Q 2 
+R1(config-if)# ip address x.x.x.x m.m.m.m 
+Option 2: Layer 3 Switching  
+S1(config)# ip routing  
+S1(config)# int vlan 2 
+S1(config-if)# ip add x.x.x.x m.m.m.m 
+DHCP Configuration w/ NAT 
+DHCP Configuration 
+R1(config)# ip dhcp excluded-address f.f.f.f l.l.l.l 
+R1(config)# ip dhcp pool VLAN2 
+R1(dhcp-config)# default-router x.x.x.x 
+R1(dhcp-config)# network x.x.x.x m.m.m.m 
+R1(dhcp-config)# dns-server x.x.x.x 
+R1(dhcp-config)# domain-name example.com 
+Assign Inside / Outside Interfaces 
+R1(config)# int g0/0 
+R1(config-if)# ip nat inside 
+R1(config)# int s0/0/0 
+R1(config-if)# ip nat outside  
+NAT ACL Configuration  
+R1(config)# ip access-list standard NAT_ADDRESSES 
+R1(config-std-nacl)# permit x.x.x.x m.m.m.m 
+R1(config-std-nacl)# permit ip any any  
+R1(config)# ip nat inside source list NAT_ADDRESSES int s0/0/0 overload 
+Static Route Configuration 
+Static Route 
+R1(config)# ip route d.d.d.d m.m.m.m {x/x | x.x.x.x} 
+Lists destination network, mask, and local exit interface type-number or ip  
+Default Static Route 
+R1(config)# ip route 0.0.0.0 0.0.0.0  
+Floating Static Route 
+R1(config)# ip route 0.0.0.0 0.0.0.0 x 
+x = administrative distance  
+Configuring RIPv2 
+Configuration 
+R1(config)#router rip 
+R1(config-router)#version 2 
+R1(config-router)#network 10.0.0.0  
+R1(config-router)#no auto-summary - Prevents RIP from grouping subnets into one CIDR  
+Verification 
+R1#show ip protocols - Shows you what protocol(s) the router is using, timers, etc. 
+R1#show run | section router rip - Shows you what IPv4 networks are in use 
+R1#show ip route - Allows you to see routes and administrative distance  
+Configuring OSPF 
+Configuration 
+R1(config)#router ospf 1 
+R1(config-router)#router-id x.x.x.x  
+R1(config-router)#network x.x.x.x w.c.w.c. area x  
+R1(config-if)#ip ospf priority 10     (ensures router becomes DR on link) 
+Metric Adjustment 
+Cost = 100 / BW Mbps (FastEthernet and above = 1 by default) 
+R1(config-router)#auto-cost reference-bandwidth 10000 
+Changes the dividend from 100 Mbps to 10,000 Mbps 
+Passive interface 
+R1(config-router)#passive-interface g0/0  
+Or 
+R1(config-router)#passive-interface default    and 
+R1(config-router)#no passive-interface s0/0/1 
+Verification 
+R1#show ip protocols 
+R1#show ip ospf neighbor 
+R1#show ip ospf interface  
+R1#show run | section ospf  
+R1#show ip route  
+R1#debug ip ospf adj  
