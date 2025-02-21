@@ -1,12 +1,14 @@
 Prep Work / TFTP Setup 
 Connect cable to first Ethernet port on the router, plug the other end into a PC 
 Install TFTP software on the PC and place the IOS image file in the TFTP directory  
+
 Router Commands 
-Type IP_ADDRESS=192.168.1.15 Router’s FE0/0 or G0/0 interface  
-Type IP_SUBNET_MASK=255.255.255.0    Subnet mask for both devices 
-Type DEFAULT_GATEWAY=192.168.1.1      Default gateway for both devices 
-Type TFTP_SERVER=192.168.1.45 PC’s IPv4 address / TFTP Server  
-Type TFTP_FILE=c1900-universalk9-mz.SPA.155-3.M5.bin  (IOS image filename) 
-Type tftpdnld Initiates the TFTP download  
-# Reference: https://www.cisco.com/en/US/docs/routers/access/800/850/software/configuration/guide/rommon.html#wp1020643 
+Type IP_ADDRESS=192.168.1.15                            Router’s FE0/0 or G0/0 interface  
+Type IP_SUBNET_MASK=255.255.255.0                       Subnet mask for both devices 
+Type DEFAULT_GATEWAY=192.168.1.1                        Default gateway for both devices 
+Type TFTP_SERVER=192.168.1.45                           PC’s IPv4 address / TFTP Server  
+Type TFTP_FILE=c1900-universalk9-mz.SPA.155-3.M5.bin    IOS image filename 
+Type tftpdnld                                           Initiates the TFTP download  
+
+Reference: https://www.cisco.com/en/US/docs/routers/access/800/850/software/configuration/guide/rommon.html#wp1020643 
 
