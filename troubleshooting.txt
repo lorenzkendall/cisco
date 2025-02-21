@@ -1,61 +1,30 @@
-#Command  
-Output/Result  
-#show controllers serial 0/0  
-clock rate and DCE/DTE  
-#show ip interfaces brief  
-ip addresses, L1/L2 status  
-#debug ip nat  
-source IP->NAT IP, destination IP and time  
-#show ip nat translations  
-static nat with inside global, inside local and outside local/global  
-#show ip route  
-routing table, with indication of how route was learned  
-#sho ip protocols  
-info about routing protocols running on router, including interfaces, networks being routed  
-#debug ip rip  
-updates, routing table being sent, flash or regular  
-#debug ip ospf  
-hello, timers, new adjacency  
-#sho ip ospf neighbor   
-ID of neighbor routers, dead timers, neighbor IP and interface route was learned on (local)  
-#sho ip ospf database  
-Shows link states for neighbor (advertising) router, along with the age  
-#show ip ospf interface serial 0/0  
-Shows if ospf is running on this interface, process ID, router ID, neighbor counts  
-#sho ip eigrp neighbors   
-Shows address and receiving interface, hold timers,   
-#show ip eigrp topology  
-Shows routes in topology table, receiving interface and feasible distance  
-#sho ip eigrp interfaces  
-Which interfaces are participating in the eigrp AS  
-#show cdp neighbors  
-Connected Cisco devices, local interface they are connected on, capability of the devices, platform and which port on the connected device  
-#sho cdp neighbors detail  
-Also shows IOS version  
-#sho ip dhcp binding  
-Who received an IP address from our pool  
-#ping 192.168.1.1  
-U.U.U means that the packet is being blocked by an ACL  
-#sh access-lists #sh ip access-lists  
-Both do the same thing, show access lists and hits  
-#show interface serial 0/0  
-Find WAN encapsulation type, condition of line  
-#debug ppp packet  
-PPP negotiation, state, authentication and errors  
-#show frame-relay map  
-interface, IP address and DLCI  
-#sho frame-relay PVC  
-statistics for FR  
-#sho frame-relay lmi  
-LMI type, send/receive of status updates  
-#debug frame-relay lmi  
-LMI info, watch for "myseq" and "yourseq" incrementing, "status 0x2" means FR is operational  
-#show vlans  
-Which switch interfaces are included in which vlan - a missing interface indicates it is a trunk  
-#show interfaces trunk  
-Shows ports that are trunking, their status, encapsulation type and allowed vlans  
-#show vtp status  
-Version, operating mode, domain name, config revision number  
-#show vtp password  
-VTP password   
+show controllers serial 0/0          clock rate and DCE/DTE  
+show ip interfaces brief             ip addresses, L1/L2 status  
+debug ip nat                         source IP->NAT IP, destination IP and time  
+show ip nat translations             static nat with inside global, inside local and outside local/global  
+show ip route                        routing table, with indication of how route was learned  
+sho ip protocols                     info about routing protocols running on router, including interfaces, networks being routed  
+debug ip rip                         updates, routing table being sent, flash or regular  
+debug ip ospf                        hello, timers, new adjacency  
+sho ip ospf neighbor                 ID of neighbor routers, dead timers, neighbor IP and interface route was learned on (local)  
+sho ip ospf database                 Shows link states for neighbor (advertising) router, along with the age  
+show ip ospf interface serial 0/0    Shows if ospf is running on this interface, process ID, router ID, neighbor counts  
+sho ip eigrp neighbors               Shows address and receiving interface, hold timers,   
+show ip eigrp topology               Shows routes in topology table, receiving interface and feasible distance  
+sho ip eigrp interfaces              Which interfaces are participating in the eigrp AS  
+show cdp neighbors                   Connected Cisco devices, local interface they are connected on, capability of the devices, platform and which port on the connected device  
+sho cdp neighbors detail             Also shows IOS version  
+sho ip dhcp binding                  Who received an IP address from our pool  
+ping 192.168.1.1                     U.U.U means that the packet is being blocked by an ACL  
+sh access-lists #sh ip access-lists  Both do the same thing, show access lists and hits  
+show interface serial 0/0            Find WAN encapsulation type, condition of line  
+debug ppp packet                     PPP negotiation, state, authentication and errors  
+show frame-relay map                 interface, IP address and DLCI  
+sho frame-relay PVC                  statistics for FR  
+sho frame-relay lmi                  LMI type, send/receive of status updates  
+debug frame-relay lmi                LMI info, watch for "myseq" and "yourseq" incrementing, "status 0x2" means FR is operational  
+show vlans                           Which switch interfaces are included in which vlan - a missing interface indicates it is a trunk  
+show interfaces trunk                Shows ports that are trunking, their status, encapsulation type and allowed vlans  
+show vtp status                      Version, operating mode, domain name, config revision number  
+show vtp password                    VTP password   
 
