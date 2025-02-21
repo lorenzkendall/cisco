@@ -1,23 +1,25 @@
-Base Configuration 
-Basic Commands 
-Host(config)# hostname device-name 
+Basic Config 
+Host(config)# hostname <device-name> 
 Host(config)# service password-encryption  
-Host(config)# banner motd “warning-message-here”  
+Host(config)# banner motd “warning-message”  
 Host(config)# line con 0 
-Host(config-line)# password ******** 
+Host(config-line)# password <password> 
 Host(config-line)# login  
 Host(config-line)# logging synchronous  
-Host(config)# enable secret ******** 
-Host(config)# username admin password ******** 
+Host(config)# enable secret <password> 
+Host(config)# username admin password <password> 
 Host(config)# int vlan 1 
 Host(config-vlan)# ip add x.x.x.x x.x.x.x (mgmt IP) 
+
 Management Interface 
 Host(config)# int vlan 1 
 Host(config-if# ip add x.x.x.x x.x.x.x 
+
 Telnet 
 Host(config)# line vty 0 15 
 Host(config-line)# transport input telnet 
 Host(config-line)# login local 
+
 SSH 
 Host(config)# ip domain-name example.com 
 Host(config)# crypto key generate rsa 
@@ -26,11 +28,14 @@ How many bits in the modulus [512]: 1024 
 Host(config)# line vty 0 15 
 Host(config-line)# transport input ssh 
 Host(config-line)# login local 
+
 Save Config 
 Host# copy run start  
+
 Info Commands  
 Host# show run - Displays the running configuration  
 Host# show start - Displays the startup configuration  
 Host# show ip int brief - Lists interface name, ip address, status, and protocol  
 Host# show cdp neighbors - Lists connected network devices 
 Host# show license feature - Shows all the activated/installed license features for your device 
+
