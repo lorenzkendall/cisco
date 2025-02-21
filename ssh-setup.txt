@@ -1,4 +1,4 @@
-To configure SSH on a Cisco device:  
+To configure SSH on a Cisco device
 hostname <hostname> 
 ip domain-name <example.com>  
 crypto key generate rsa 
@@ -7,7 +7,8 @@ ip ssh version 2
 line vty 0 4 
 transport input ssh  
 login local 
-username <username> secret <password>  
+username <username> secret <password> 
+
 To use a Cisco device as an SSH client to log into another device:  
 ssh -l username <ip address> 
 
