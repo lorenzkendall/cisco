@@ -1,44 +1,56 @@
 Interface Configuration 
 Switchport Mode 
 S1(config-if)# switchport mode {access | dynamic | trunk} 
+
 Speed / Duplex 
 S1(config-if)# speed {10 | 100 | 1000 | auto} 
 S1(config-if)# duplex {full | half | auto} 
 FE: Use manual speed/duplex settings for key devices like servers, routers, etc  
 GE: Use Auto unless a FE device is connected on the other end  
+
 Port Security 
 S1(config-if)# switchport port-security maximum x 
 S1(config-if)# switchport port-security violation {protect | restrict | shutdown} 
 S1(config-if)# switchport port-security mac-address {mac-address | sticky} 
+
 Verification 
 S1# show int x/x status 
 VLAN Configuration 
+
 Create VLAN 
-S1(config)# vlan 2 
-S1(config-vlan)# name SALES 
+S1(config)# vlan <x>
+S1(config-vlan)# name <vlan-name> 
+
 Assign VLAN 
 S1(config)# int f0/1 
 S1(config-if)# switchport mode access 
-S1(config-if)# switchport access vlan 2 
+S1(config-if)# switchport access vlan <x>
+
 Trunk VLANs 
 S1(config)# int g0/1 
 S1(config-if)# switchport mode trunk 
 S1(config-if)# switchport trunk allowed vlan {add | all | remove} vlan-id  
+
 Verification 
 S1# show vlan 
 VLAN Trunking Protocol (VTP) 
+
 Configuration 
-S1(config)# vtp domain example.com 
+S1(config)# vtp domain <example.com>
 S1(config)# vtp mode {server | client | transparent} 
+
 Verification 
 S1# show vtp status 
+
 Locating Network Devices  
 S1# show cdp neighbors - Shows neighboring network devices 
 S1# show mac address-table - May list hundreds of MAC addresses 
 S1# show mac address-table |    9fe7 - Lists MAC matching last 4 digits 
 S1# show mac address-table interface x/x - May list multiple (if connected to a switch) 
+
 Spanning Tree Protocol (STP) 
 S1# show spanning-tree 
 Note: Look in the cost section for “this bridge is the root”  
 Lists Root ID, Bridge ID, and Interfaces 
 S1(config)#spanning-tree vlan 1 priority 4096 - makes switch the root because of lowest priority 
+
